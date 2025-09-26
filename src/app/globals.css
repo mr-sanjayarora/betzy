@@ -1,58 +1,94 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
-  --background: #ffffff;
-  --foreground: #150B09;
+    --cut-size: 5px;             /* This now defines the radius of the rounded cut */
+    --main-bg: #1f1a18;           /* Very dark, slightly reddish main background */
+    --item-bg: #2e2420;           /* Item background, slightly lighter and warmer */
+    --main-border: #524741;       /* Warmer, medium-dark default border color */
+    --active-color-light: #f77348;/* Brighter orange/red for active border/icon */
+    --active-color-dark: #662211; /* Dark red background for active state */
+    /* --- New Variables for Sign Up Button --- */
+    --signup-bg-dark: #3a1f1e;    /* Dark reddish edge color */
+    --signup-bg-light: #6e3533;   /* Lighter reddish center color */
+    --signup-glow-color: #f77348; /* Reusing the primary orange/red for the glow */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #150B09;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.sidebar {
-  background-color: #1B100E;
-}
-.gradient-border-container {
-  position: relative;
-  /* other styles for your element */
-}
-
-.gradient-border-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1px; /* This is the border width */
-  background: linear-gradient(to right, #D53E2A, #D53E2A);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none; /* Prevents the pseudo-element from blocking clicks */
-}
-
-.header input {
-  width: 512px;
-  height: 40px;
+ .btn {
+  border-radius: 10px;
   outline: none;
-  border: 1px solid #D53E2A;
-  text-indent: 10px;
-  color: #EAEAEA;
+  box-shadow: none;
+ }
+
+ .btn-primary {
+  background-color: #f53d09;
+  border-color: #f53d09;
+ }
+
+ .btn-primary-outlined, .menu {
+  border: 1px solid #f53c0972;
+ }
+
+ .btn-primary-outlined {
+  background-color: transparent !important;
+ }
+
+ .input {
+  background: none;
+ }
+
+ .menu-title {
+  color: #f53d09;
+ }
+
+ .menu-item {
+  margin-bottom: 6px;
+  margin-left: 0;
+  color: #9f9b9a !important;
+  background-color: #221816;
+  border: 1px solid #504744!important;
+ }
+
+ .menu-item, .menu-item > a {
+  height: 42px;
+ }
+
+ .menu-item:hover {
+  color: #ffffff !important;
+  border-color: #f53d09 !important;
+ }
+
+ .menu ul::before {
+  display: none;
+ }
+
+ .menu ul {
+  margin-right: 6px;
+  padding-left: 0;
+ }
+
+.cut-border {
+    mask-image: 
+        /* Top-left cut */
+        radial-gradient(circle at top left, transparent var(--cut-size), white calc(var(--cut-size) + 1px)),
+        /* Top-right cut */
+        radial-gradient(circle at top right, transparent var(--cut-size), white calc(var(--cut-size) + 1px)),
+        /* Bottom-right cut */
+        radial-gradient(circle at bottom right, transparent var(--cut-size), white calc(var(--cut-size) + 1px)),
+        /* Bottom-left cut */
+        radial-gradient(circle at bottom left, transparent var(--cut-size), white calc(var(--cut-size) + 1px));
+        
+    mask-size: 50% 50%;
+    mask-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    mask-repeat: no-repeat;
+}
+
+.btn-gradient, .menu-item:hover {
+  /* Background Gradient (Center Lighter, Edges Darker) */
+  background: radial-gradient(
+      circle at center,
+      var(--signup-bg-light) 0%,      /* Lighter in the center */
+      var(--signup-bg-dark) 60%       /* Darker towards the edges */
+  );
+  transition: all 0.2s;
 }
