@@ -1,6 +1,7 @@
+'use client';
 import Image from "next/image";
 import { Sora, Roboto } from "next/font/google";
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 const sora = Sora({
   subsets: ["latin"],
@@ -16,12 +17,16 @@ const roboto = Roboto({
 
 
 const Header = () => {
+  const [mode, setMode] = useState<'sports' | 'casino'>('casino');
+  const handleModeChange = (newMode: 'sports' | 'casino') => {
+    setMode(newMode);
+  }
   return (
-    <div className='ms-[280px] p-5'>
-      <div className="navbar">
+    <div className='md:ml-72 ml-0 p-5'>
+      <div className="navbar p-0">
         <div className="navbar-start flex gap-0">
-          <a className={`btn btn-primary-outlined btn-gradient border-0 rounded-r-[0!important] ${sora.variable}`}>Sports</a>
-          <a className={`btn btn-primary rounded-l-[0!important] ${sora.variable}`}>Casino</a>
+          <a onClick={() => handleModeChange('sports')} className={`btn ${mode == 'sports' ? 'btn-primary' : 'btn-primary-outlined btn-gradient'} border-0 rounded-r-[0!important] ${sora.className}`}>Sports</a>
+          <a onClick={() => handleModeChange('casino')} className={`btn ${mode == 'casino' ? 'btn-primary': 'btn-primary-outlined btn-gradient'} rounded-l-[0!important] ${sora.className}`}>Casino</a>
         </div>
         <div className="navbar-center hidden lg:flex w-1/2">
           <label className="input w-full cut-border">
@@ -41,9 +46,9 @@ const Header = () => {
           </label>
         </div>
         <div className="navbar-end flex gap-3">
-          <Image className='me-2' src={'/static/img/bell.svg'} width={20} height={20} alt='notification'/>
-          <a className={`btn btn-primary-outlined btn-gradient ${roboto.variable} font-normal`}>Sign Up</a>
-          <a className={`btn btn-primary ${roboto.variable} font-normal`}>Sign In</a>
+          <button className="btn btn-primary-outlined btn-gradient"><Image src={'/static/img/bell.svg'} width={20} height={20} alt='notification' draggable={false}/></button>
+          <a className={`btn btn-primary-outlined btn-gradient ${roboto.className} font-normal`}>Sign Up</a>
+          <a className={`btn btn-primary ${roboto.className} font-normal`}>Sign In</a>
         </div>
       </div>
     </div>

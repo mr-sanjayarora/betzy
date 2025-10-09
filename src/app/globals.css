@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+    themes: dark --default;
+}
 
 :root {
     --cut-size: 5px;             /* This now defines the radius of the rounded cut */
@@ -11,7 +13,13 @@
     /* --- New Variables for Sign Up Button --- */
     --signup-bg-dark: #3a1f1e;    /* Dark reddish edge color */
     --signup-bg-light: #6e3533;   /* Lighter reddish center color */
-    --signup-glow-color: #f77348; /* Reusing the primary orange/red for the glow */
+    --signup-glow-color: var(--active-color-light); /* Reusing the primary orange/red for the glow */
+    --primary-color: #f53d09; /* Primary color for highlights and buttons */
+}
+
+body {
+  background: radial-gradient(circle, #2b0e0a 0%, #270e09 100%);;
+  color: #ffffff;
 }
 
  .btn {
@@ -21,8 +29,14 @@
  }
 
  .btn-primary {
-  background-color: #f53d09;
-  border-color: #f53d09;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+ }
+
+ .btn-separator {
+  background-color: var(--primary-color);
+  border: 3px solid #2b0e0a;
+  box-shadow: none;
  }
 
  .btn-primary-outlined, .menu {
@@ -37,8 +51,8 @@
   background: none;
  }
 
- .menu-title {
-  color: #f53d09;
+ .menu-title, .text-primary {
+  color: var(--primary-color);
  }
 
  .menu-item {
@@ -55,7 +69,7 @@
 
  .menu-item:hover {
   color: #ffffff !important;
-  border-color: #f53d09 !important;
+  border-color: var(--primary-color) !important;
  }
 
  .menu ul::before {
@@ -83,7 +97,7 @@
     mask-repeat: no-repeat;
 }
 
-.btn-gradient, .menu-item:hover {
+.btn-gradient, .menu-item:hover, .card:hover {
   /* Background Gradient (Center Lighter, Edges Darker) */
   background: radial-gradient(
       circle at center,
@@ -91,4 +105,22 @@
       var(--signup-bg-dark) 60%       /* Darker towards the edges */
   );
   transition: all 0.2s;
+  border-color: var(--primary-color) !important;
+  color: #ffffff !important;
+}
+
+.card {
+    background-color: #221917 !important;
+}
+
+.poker-room-info {
+    background: radial-gradient(
+        circle at center,
+        var(--item-bg) 0%,      /* Lighter in the center */
+        #1f1a18 60%       /* Darker towards the edges */
+    );
+    border-width: 3px;
+    background-image: url('/static/img/poker-table.png');
+    background-size: cover;
+    background-position: top center;
 }

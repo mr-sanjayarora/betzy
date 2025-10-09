@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-[#270e09]">
+    <html lang="en">
       <body>
         <Sidebar/>
         <Header/>
-        <div className="ms-[280px] p-5">
+        <div className="ml-0 md:ml-72 p-5 pb-0">
           {children}
         </div>
       </body>
