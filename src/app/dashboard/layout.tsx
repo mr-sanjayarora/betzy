@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import "../globals.css";
+import Header from "../section-components/header";
+import Sidebar from "../section-components/sidebar";
 
 export const metadata: Metadata = {
   title: "Betzy - Live Betzy Poker Games",
@@ -14,7 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Sidebar/>
+        <Header/>
+        <div className="ml-0 md:ml-72 p-5 pb-0">
           {children}
+        </div>
       </body>
     </html>
   );

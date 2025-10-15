@@ -12,7 +12,7 @@
     --active-color-dark: #662211; /* Dark red background for active state */
     /* --- New Variables for Sign Up Button --- */
     --signup-bg-dark: #3a1f1e;    /* Dark reddish edge color */
-    --signup-bg-light: #6e3533;   /* Lighter reddish center color */
+    --signup-bg-light: #D53E2ABF;   /* Lighter reddish center color */
     --signup-glow-color: var(--active-color-light); /* Reusing the primary orange/red for the glow */
     --primary-color: #f53d09; /* Primary color for highlights and buttons */
 }
@@ -29,7 +29,7 @@ body {
  }
 
  .btn-primary {
-  background-color: var(--primary-color);
+  background: linear-gradient(180deg, #F61000 0%, #F54D0D 100%);;
   border-color: var(--primary-color);
  }
 
@@ -98,12 +98,7 @@ body {
 }
 
 .btn-gradient, .menu-item:hover, .card:hover {
-  /* Background Gradient (Center Lighter, Edges Darker) */
-  background: radial-gradient(
-      circle at center,
-      var(--signup-bg-light) 0%,      /* Lighter in the center */
-      var(--signup-bg-dark) 60%       /* Darker towards the edges */
-  );
+  background: radial-gradient(circle at center, var(--signup-bg-light) -100%, var(--signup-bg-dark) 60%);
   transition: all 0.2s;
   border-color: var(--primary-color) !important;
   color: #ffffff !important;
@@ -121,6 +116,6 @@ body {
     );
     border-width: 3px;
     background-image: url('/static/img/poker-table.png');
-    background-size: cover;
-    background-position: top center;
+    background-size: contain;
+    background-position: top 70px center;
 }

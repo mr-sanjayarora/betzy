@@ -45,7 +45,8 @@ const Header = () => {
             <input type="search" className='w-full' placeholder="Search tables, players, or tournaments" />
           </label>
         </div>
-        <div className="navbar-end flex gap-3">
+        <div className="navbar-end flex gap-3 relative">
+          <div className="indicator btn-primary rounded-full w-15 h-10 blur-lg absolute -top-14 left-7/12"></div>
           <button className="btn btn-primary-outlined btn-gradient"><Image src={'/static/img/bell.svg'} width={20} height={20} alt='notification' draggable={false}/></button>
           <a className={`btn btn-primary-outlined btn-gradient ${roboto.className} font-normal`}>Sign Up</a>
           <a className={`btn btn-primary ${roboto.className} font-normal`}>Sign In</a>
