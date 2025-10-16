@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: dark --default;
+}
+@import '../sass/variables.scss';
+
+html {
+    background-color: black;
+}
+
+.divider {
+    height: 0 !important;
+    // margin: $margin;
+}
+
+.btn-gradient, .menu-item:hover, .card:hover {
+  background: radial-gradient(circle at center, $bg-light -100%, $bg-dark 60%);
+  transition: all 0.2s;
+  border-color: $primaryColor !important;
+  color: $white !important;
+}
+
+.cut-border, .navigation {
+    background-color: $bg-dark;
+}

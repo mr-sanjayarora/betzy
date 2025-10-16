@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../globals.css";
+import "./custom.scss";
 
 export const metadata: Metadata = {
   title: "Betzy - Live Betzy Poker Games",
