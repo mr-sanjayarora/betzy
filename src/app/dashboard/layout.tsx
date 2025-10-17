@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import Header from "../section-components/header";
-import Sidebar from "../section-components/sidebar";
+import Header from "../components/header";
+import Sidebar from "../components/sidebar";
 
 export const metadata: Metadata = {
   title: "Betzy - Live Betzy Poker Games",

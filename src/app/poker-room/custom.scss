@@ -13,7 +13,7 @@ html {
     // margin: $margin;
 }
 
-.btn-gradient, .menu-item:hover, .card:hover {
+.bg-gradient, .menu-item:hover, .card:hover {
   background: radial-gradient(circle at center, $bg-light -100%, $bg-dark 60%);
   transition: all 0.2s;
   border-color: $primaryColor !important;
@@ -22,4 +22,18 @@ html {
 
 .cut-border, .navigation {
     background-color: $bg-dark;
+}
+
+.player-name {
+    h2 {
+        color: $primaryColor;
+    }
+}
+
+.bg-red {
+    background-color: $red;
+}
+
+.bg-yellow {
+    background-color: $yellow;
 }

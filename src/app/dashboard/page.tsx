@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Sora, Quicksand, Carter_One } from 'next/font/google'
-import Card, { CardData } from '../components/Card'
+import Card, { CardData } from '../components/ui/Card'
 import PokerRoom from '../components/PokerRoom'
 import Image from 'next/image'
 import cardsData from '../../data/cards.json' // import JSON
